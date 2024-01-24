@@ -6,14 +6,12 @@ import time
 
 running = False
 
-
 def auto_clicker(interval):
     global running
     running = True
     while running:
         pyautogui.click()
         time.sleep(interval)
-
 
 def on_toggle_key():
     """
@@ -34,7 +32,6 @@ def on_toggle_key():
     else:
         interval = float(entry_interval.get())
         Thread(target=auto_clicker, args=(interval,)).start()
-
 
 # GUI setup
 root = tk.Tk()
