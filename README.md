@@ -14,7 +14,6 @@ The script uses the following Python libraries:
 
 ## How to Run
 
-1. Install the required Python libraries with pip:
-
-```bash
-pip install pyautogui tkinter keyboard
+1. Download latest release
+2. Unzip the file
+3. Run the executable
