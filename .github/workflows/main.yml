@@ -29,12 +29,23 @@ jobs:
       run: |
         Compress-Archive -Path ./dist/auto_clicker.exe -DestinationPath auto_clicker.zip
 
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.run_id }}
+        release_name: Release ${{ github.run_id }}
+        draft: false
+        prerelease: false
+
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: ${{ github.event.release.upload_url }}
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./auto_clicker.zip
         asset_name: auto_clicker.zip
         asset_content_type: application/zip
