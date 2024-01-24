@@ -1,0 +1,40 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        pip install pyinstaller
+
+    - name: Build Executable
+      run: |
+        pyinstaller --onefile auto_clicker.py
+
+    - name: Zip Executable
+      run: |
+        Compress-Archive -Path ./dist/auto_clicker.exe -DestinationPath auto_clicker.zip
+
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ./auto_clicker.zip
+        asset_name: auto_clicker.zip
+        asset_content_type: application/zip
