@@ -16,6 +16,18 @@ def auto_clicker(interval):
 
 
 def on_toggle_key():
+    """
+    Toggles the state of the auto-clicker.
+
+    If the auto-clicker is currently running, it stops it.
+    If the auto-clicker is not running, it starts it with the interval specified in the entry widget.
+
+    Args:
+        None
+
+    Returns:
+        None
+    """
     global running
     if running:
         running = False
