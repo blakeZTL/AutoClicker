@@ -15,5 +15,5 @@ The script uses the following Python libraries:
 ## How to Run
 
 1. Download latest release
-2. Unzip the file
+2. Unzip the package
 3. Run the executable
