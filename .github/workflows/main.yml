@@ -23,7 +23,8 @@ jobs:
 
     - name: Build Executable
       run: |
-        pyinstaller --onefile auto_clicker.py
+        pyinstaller --onefile --hidden-import=pyautogui --hidden-import=keyboard your_script.py
+
 
     - name: Zip Executable
       run: |
