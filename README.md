@@ -17,3 +17,4 @@ The script uses the following Python libraries:
 1. Download latest release
 2. Unzip the package
 3. Run the executable
+4. Enjoy
