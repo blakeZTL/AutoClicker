@@ -19,11 +19,11 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install pyinstaller
+        pip install pyinstaller pyautogui keyboard
 
     - name: Build Executable
       run: |
-        pyinstaller --onefile --hidden-import=pyautogui --hidden-import=keyboard your_script.py
+        pyinstaller --onefile --hidden-import=pyautogui --hidden-import=keyboard auto_clicker.py
 
 
     - name: Zip Executable
