@@ -1,3 +1,6 @@
 /.venv
 __pycache__
 test_*
+*.spec
+build
+dist
